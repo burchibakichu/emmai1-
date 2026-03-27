@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emmai Restaurant – Kohima, Nagaland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="images/emmailogo.jpg" alt="Emmai Logo">
+    <span class="nav-logo-text">Emmai</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#visit">Visit Us</a></li>
+  </ul>
+  <button class="nav-cart" onclick="openCart()">🛒 Cart <span class="cart-badge" id="cart-count">0</span></button>
+  <button class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#menu" onclick="closeMobileMenu()">Menu</a>
+  <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+  <a href="#visit" onclick="closeMobileMenu()">Visit Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Kohima, Nagaland · Est. 2023</div>
+    <img src="images/emmailogo.jpg" class="hero-logo" alt="Emmai Restaurant">
+    <h1>Em<em>mai</em></h1>
+    <p class="hero-sub">Restaurant &amp; Café</p>
+    <p class="hero-desc">Where every plate tells a story. Fresh, thoughtfully crafted meals in the heart of Kohima — a warm, welcoming space for great food and beautiful moments.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-primary">Explore Menu</a>
+      <a href="#visit" class="btn-outline">Find Us</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">🕐 Mon–Sat · 10 AM – 6 PM</div>
+      <div class="hero-meta-item">📍 Razhü Point, 2nd Floor</div>
+      <div class="hero-meta-item">📞 9774884078</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about scroll-offset" id="about">
+  <div class="about-gallery reveal">
+    <img src="images/wood.png" alt="Emmai interior – warm wood seating">
+    <img src="images/cosy.png" alt="Emmai cosy lounge area">
+    <img src="images/fresh.png" alt="Fresh flowers at Emmai">
+  </div>
+  <div class="about-text reveal">
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">Born from a love<br><em style="font-style:italic;color:var(--amber)">for good food</em></h2>
+    <p>Emmai Restaurant opened its doors in 2023 with a simple belief — that food should feel like home. Nestled on the 2nd floor of the Dr Neilhouzhü Kire Complex at Razhü Point, Kohima, we built a space where the warmth of the interiors matches the heart in every dish we serve.</p>
+    <p>From our Chef's Favourites and hearty mains to freshly brewed hot beverages, every item on our menu is made with care. We blend the local spirit of Nagaland with global flavours — a menu as diverse as it is delicious.</p>
+    <p>Come for the food. Stay for the ambience. Leave with a memory.</p>
+    <div class="about-stats">
+      <div class="stat"><div class="stat-num">2023</div><div class="stat-label">Est.</div></div>
+      <div class="stat"><div class="stat-num">60+</div><div class="stat-label">Menu Items</div></div>
+      <div class="stat"><div class="stat-num">542</div><div class="stat-label">Happy Guests</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section scroll-offset" id="menu">
+  <div class="section-label center">What We Serve</div>
+  <h2 class="section-title center reveal">Our Menu</h2>
+  <p class="menu-intro reveal">Tap any item to add it to your cart, then send your order directly via WhatsApp.</p>
+  <div class="menu-tabs reveal">
+    <button class="menu-tab active" onclick="switchTab(this,'starters')">Starters</button>
+    <button class="menu-tab" onclick="switchTab(this,'snacks')">Snacks</button>
+    <button class="menu-tab" onclick="switchTab(this,'sliders')">Sliders</button>
+    <button class="menu-tab" onclick="switchTab(this,'pasta')">Pasta</button>
+    <button class="menu-tab" onclick="switchTab(this,'mains')">Mains</button>
+    <button class="menu-tab" onclick="switchTab(this,'salads')">Salads &amp; Soups</button>
+    <button class="menu-tab" onclick="switchTab(this,'beverages')">Beverages</button>
+    <button class="menu-tab" onclick="switchTab(this,'combo')">Combos</button>
+  </div>
+
+  <div class="menu-panel active" id="tab-starters"><div class="menu-grid">
+    <div class="menu-item" onclick="addToCart('Pancake – Plain',100)"><div class="menu-item-info"><div class="menu-item-name">Pancake – Plain</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Pancake – With Topping',130)"><div class="menu-item-info"><div class="menu-item-name">Pancake – With Topping</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Grilled Paneer Sandwich',100)"><div class="menu-item-info"><div class="menu-item-name">Grilled Paneer Sandwich</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Peri-Peri Chicken Sandwich',150)"><div class="menu-item-info"><div class="menu-item-name">Peri-Peri Chicken Sandwich</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Mumbai Egg Sandwich',120)"><div class="menu-item-info"><div class="menu-item-name">Mumbai Egg Sandwich</div></div><div class="menu-item-right"><div class="menu-item-price">₹120</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Plain Omelette',50)"><div class="menu-item-info"><div class="menu-item-name">Plain Omelette</div></div><div class="menu-item-right"><div class="menu-item-price">₹50</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Egg White Omelette',80)"><div class="menu-item-info"><div class="menu-item-name">Egg White Omelette</div></div><div class="menu-item-right"><div class="menu-item-price">₹80</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Spanish Egg Omelette',120)"><div class="menu-item-info"><div class="menu-item-name">Spanish Egg Omelette</div></div><div class="menu-item-right"><div class="menu-item-price">₹120</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Sunny Side Up',80)"><div class="menu-item-info"><div class="menu-item-name">Sunny Side Up</div></div><div class="menu-item-right"><div class="menu-item-price">₹80</div><button class="add-btn">+</button></div></div>
+  </div></div>
+
+  <div class="menu-panel" id="tab-snacks"><div class="menu-grid">
+    <div class="menu-item" onclick="addToCart('French Fries',100)"><div class="menu-item-info"><div class="menu-item-name">French Fries</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Peri-Peri French Fries',130)"><div class="menu-item-info"><div class="menu-item-name">Peri-Peri French Fries</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Veg Pakora',130)"><div class="menu-item-info"><div class="menu-item-name">Veg Pakora</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Chicken Pakora',180)"><div class="menu-item-info"><div class="menu-item-name">Chicken Pakora</div></div><div class="menu-item-right"><div class="menu-item-price">₹180</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Onion Rings',130)"><div class="menu-item-info"><div class="menu-item-name">Onion Rings</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Teriyaki Chicken Strips',150)"><div class="menu-item-info"><div class="menu-item-name">Teriyaki Chicken Strips</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Chicken Wings – Honey/Coriander/Peri-Peri',250)"><div class="menu-item-info"><div class="menu-item-name">Chicken Wings</div><div class="menu-item-desc">Honey / Coriander / Peri-Peri</div></div><div class="menu-item-right"><div class="menu-item-price">₹250</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Crispy Chicken Wings',260)"><div class="menu-item-info"><div class="menu-item-name">Crispy Chicken Wings</div></div><div class="menu-item-right"><div class="menu-item-price">₹260</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Pop Corn Chicken',160)"><div class="menu-item-info"><div class="menu-item-name">Pop Corn Chicken</div></div><div class="menu-item-right"><div class="menu-item-price">₹160</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Grilled Yucatan Paneer Skewers',150)"><div class="menu-item-info"><div class="menu-item-name">Grilled Yucatan Paneer Skewers</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Sticky Lemon Chicken',190)"><div class="menu-item-info"><div class="menu-item-name">Sticky Lemon Chicken</div></div><div class="menu-item-right"><div class="menu-item-price">₹190</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fish Fingers',160)"><div class="menu-item-info"><div class="menu-item-name">Fish Fingers</div></div><div class="menu-item-right"><div class="menu-item-price">₹160</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Chilli Chicken',250)"><div class="menu-item-info"><div class="menu-item-name">Chilli Chicken</div></div><div class="menu-item-right"><div class="menu-item-price">₹250</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Chicken Liver &amp; Gizzard',230)"><div class="menu-item-info"><div class="menu-item-name">Chicken Liver &amp; Gizzard</div></div><div class="menu-item-right"><div class="menu-item-price">₹230</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Prawn Tempura',250)"><div class="menu-item-info"><div class="menu-item-name">Prawn Tempura</div></div><div class="menu-item-right"><div class="menu-item-price">₹250</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Prawn Chilli',220)"><div class="menu-item-info"><div class="menu-item-name">Prawn Chilli</div></div><div class="menu-item-right"><div class="menu-item-price">₹220</div><button class="add-btn">+</button></div></div>
+  </div></div>
+
+  <div class="menu-panel" id="tab-sliders"><div class="menu-grid">
+    <div class="menu-item" onclick="addToCart('Wasabi Mustard Paneer Toast',130)"><div class="menu-item-info"><div class="menu-item-name">Wasabi Mustard Paneer Toast</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Spinach Hash Brown &amp; Corn',130)"><div class="menu-item-info"><div class="menu-item-name">Spinach Hash Brown &amp; Corn</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Sloppy Joe',200)"><div class="menu-item-info"><div class="menu-item-name">Sloppy Joe</div></div><div class="menu-item-right"><div class="menu-item-price">₹200</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('BBQ Chicken Slider',200)"><div class="menu-item-info"><div class="menu-item-name">BBQ Chicken Slider</div></div><div class="menu-item-right"><div class="menu-item-price">₹200</div><button class="add-btn">+</button></div></div>
+  </div></div>
+
+  <div class="menu-panel" id="tab-pasta"><div class="menu-grid">
+    <div class="menu-item" onclick="addToCart('Pasta – Veg (choice of pasta &amp; sauce)',200)"><div class="menu-item-info"><div class="menu-item-name">Pasta – Veg</div><div class="menu-item-desc">Spaghetti / Penne / Macaroni · Aglio olio / Neapoli / White / Pink sauce</div></div><div class="menu-item-right"><div class="menu-item-price">₹200</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Pasta – Non Veg (choice of pasta &amp; sauce)',220)"><div class="menu-item-info"><div class="menu-item-name">Pasta – Non Veg</div><div class="menu-item-desc">Spaghetti / Penne / Macaroni · Aglio olio / Neapoli / White / Pink sauce</div></div><div class="menu-item-right"><div class="menu-item-price">₹220</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Mac N Cheese',190)"><div class="menu-item-info"><div class="menu-item-name">Mac N Cheese</div></div><div class="menu-item-right"><div class="menu-item-price">₹190</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Macaroni Carbonara',240)"><div class="menu-item-info"><div class="menu-item-name">Macaroni Carbonara</div></div><div class="menu-item-right"><div class="menu-item-price">₹240</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Chicken Bolognese',240)"><div class="menu-item-info"><div class="menu-item-name">Chicken Bolognese</div></div><div class="menu-item-right"><div class="menu-item-price">₹240</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Chicken Lasagne',250)"><div class="menu-item-info"><div class="menu-item-name">Chicken Lasagne</div></div><div class="menu-item-right"><div class="menu-item-price">₹250</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Corn &amp; Vegetables Spanish Au Gratin',200)"><div class="menu-item-info"><div class="menu-item-name">Corn &amp; Vegetables Spanish Au Gratin</div></div><div class="menu-item-right"><div class="menu-item-price">₹200</div><button class="add-btn">+</button></div></div>
+  </div></div>
+
+  <div class="menu-panel" id="tab-mains"><div class="menu-grid">
+    <div class="menu-item" onclick="addToCart('Cottage Cheese Triangle + Scallion Sauce + Butter Rice',300)"><div class="menu-item-info"><div class="menu-item-name">Cottage Cheese Triangle</div><div class="menu-item-desc">Scallion sauce + Butter Rice</div></div><div class="menu-item-right"><div class="menu-item-price">₹300</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Vegetable Stroganoff + Butter Rice',300)"><div class="menu-item-info"><div class="menu-item-name">Vegetable Stroganoff + Butter Rice</div></div><div class="menu-item-right"><div class="menu-item-price">₹300</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Chicken Steak + Butter Rice',350)"><div class="menu-item-info"><div class="menu-item-name">Chicken Steak + Butter Rice</div></div><div class="menu-item-right"><div class="menu-item-price">₹350</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Beef Steak + Butter Rice',350)"><div class="menu-item-info"><div class="menu-item-name">Beef Steak + Butter Rice</div></div><div class="menu-item-right"><div class="menu-item-price">₹350</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fish Steak + Butter Rice',350)"><div class="menu-item-info"><div class="menu-item-name">Fish Steak + Butter Rice</div></div><div class="menu-item-right"><div class="menu-item-price">₹350</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Rice – Veg',140)"><div class="menu-item-info"><div class="menu-item-name">Fried Rice – Veg</div></div><div class="menu-item-right"><div class="menu-item-price">₹140</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Rice – Egg',150)"><div class="menu-item-info"><div class="menu-item-name">Fried Rice – Egg</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Rice – Chicken',170)"><div class="menu-item-info"><div class="menu-item-name">Fried Rice – Chicken</div></div><div class="menu-item-right"><div class="menu-item-price">₹170</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Rice – Pork',170)"><div class="menu-item-info"><div class="menu-item-name">Fried Rice – Pork</div></div><div class="menu-item-right"><div class="menu-item-price">₹170</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Rice – Beef',170)"><div class="menu-item-info"><div class="menu-item-name">Fried Rice – Beef</div></div><div class="menu-item-right"><div class="menu-item-price">₹170</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Rice – Mixed',210)"><div class="menu-item-info"><div class="menu-item-name">Fried Rice – Mixed</div></div><div class="menu-item-right"><div class="menu-item-price">₹210</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Chow – Veg',140)"><div class="menu-item-info"><div class="menu-item-name">Fried Chow – Veg</div></div><div class="menu-item-right"><div class="menu-item-price">₹140</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Chow – Chicken',170)"><div class="menu-item-info"><div class="menu-item-name">Fried Chow – Chicken</div></div><div class="menu-item-right"><div class="menu-item-price">₹170</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Chow – Pork',170)"><div class="menu-item-info"><div class="menu-item-name">Fried Chow – Pork</div></div><div class="menu-item-right"><div class="menu-item-price">₹170</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Chow – Mixed',210)"><div class="menu-item-info"><div class="menu-item-name">Fried Chow – Mixed</div></div><div class="menu-item-right"><div class="menu-item-price">₹210</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Soup Chow – Veg',140)"><div class="menu-item-info"><div class="menu-item-name">Soup Chow – Veg</div></div><div class="menu-item-right"><div class="menu-item-price">₹140</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Soup Chow – Pork',170)"><div class="menu-item-info"><div class="menu-item-name">Soup Chow – Pork</div></div><div class="menu-item-right"><div class="menu-item-price">₹170</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Rolls – Veg',130)"><div class="menu-item-info"><div class="menu-item-name">Rolls – Veg</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Rolls – Pork',170)"><div class="menu-item-info"><div class="menu-item-name">Rolls – Pork</div></div><div class="menu-item-right"><div class="menu-item-price">₹170</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Rolls – Mixed',200)"><div class="menu-item-info"><div class="menu-item-name">Rolls – Mixed</div></div><div class="menu-item-right"><div class="menu-item-price">₹200</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Steamed Momo (Beef/Pork)',150)"><div class="menu-item-info"><div class="menu-item-name">Steamed Momo</div><div class="menu-item-desc">Beef / Pork</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fried Momo (Beef/Pork)',160)"><div class="menu-item-info"><div class="menu-item-name">Fried Momo</div><div class="menu-item-desc">Beef / Pork</div></div><div class="menu-item-right"><div class="menu-item-price">₹160</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Pre-Order: Local Rice with Chicken/Fish/Pork in Bamboo Shoot',300)"><div class="menu-item-info"><div class="menu-item-name">Pre-Order: Local Rice</div><div class="menu-item-desc">Chicken / Fish / Pork in Bamboo Shoot · Veg Boil, Dal, Chutney</div></div><div class="menu-item-right"><div class="menu-item-price">₹300</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Pre-Order: Local Rice with Smoked Pork (Anishi/Axone)',350)"><div class="menu-item-info"><div class="menu-item-name">Pre-Order: Smoked Pork Rice</div><div class="menu-item-desc">Anishi / Axone · Veg Boil, Dal, Chutney</div></div><div class="menu-item-right"><div class="menu-item-price">₹350</div><button class="add-btn">+</button></div></div>
+  </div></div>
+
+  <div class="menu-panel" id="tab-salads"><div class="menu-grid">
+    <div class="menu-item" onclick="addToCart('Caesar Salad – Veg',150)"><div class="menu-item-info"><div class="menu-item-name">Caesar Salad – Veg</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Caesar Salad – Non Veg',180)"><div class="menu-item-info"><div class="menu-item-name">Caesar Salad – Non Veg</div></div><div class="menu-item-right"><div class="menu-item-price">₹180</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Watermelon, Jalapeno &amp; Cheese Salad',160)"><div class="menu-item-info"><div class="menu-item-name">Watermelon, Jalapeno &amp; Cheese</div></div><div class="menu-item-right"><div class="menu-item-price">₹160</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fruit Salad',150)"><div class="menu-item-info"><div class="menu-item-name">Fruit Salad</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Greek Salad',160)"><div class="menu-item-info"><div class="menu-item-name">Greek Salad</div></div><div class="menu-item-right"><div class="menu-item-price">₹160</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Green Salad',100)"><div class="menu-item-info"><div class="menu-item-name">Green Salad</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Sweet Corn Soup – Veg',100)"><div class="menu-item-info"><div class="menu-item-name">Sweet Corn Soup – Veg</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Sweet Corn Soup – Chicken',130)"><div class="menu-item-info"><div class="menu-item-name">Sweet Corn Soup – Chicken</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Hot &amp; Sour Soup – Veg',100)"><div class="menu-item-info"><div class="menu-item-name">Hot &amp; Sour Soup – Veg</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Hot &amp; Sour Soup – Chicken',130)"><div class="menu-item-info"><div class="menu-item-name">Hot &amp; Sour Soup – Chicken</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Chicken Mushroom Soup',150)"><div class="menu-item-info"><div class="menu-item-name">Chicken Mushroom Soup</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Clear Soup – Veg',100)"><div class="menu-item-info"><div class="menu-item-name">Clear Soup – Veg</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Clear Soup – Prawn',150)"><div class="menu-item-info"><div class="menu-item-name">Clear Soup – Prawn</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Spanish/Chicken Cream Soup',120)"><div class="menu-item-info"><div class="menu-item-name">Spanish / Chicken Cream Soup</div></div><div class="menu-item-right"><div class="menu-item-price">₹120</div><button class="add-btn">+</button></div></div>
+  </div></div>
+
+  <div class="menu-panel" id="tab-beverages"><div class="menu-grid">
+    <div class="menu-item" onclick="addToCart('Milk Tea',20)"><div class="menu-item-info"><div class="menu-item-name">Milk Tea</div><div class="menu-item-desc">Hot Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹20</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Black Tea',10)"><div class="menu-item-info"><div class="menu-item-name">Black Tea</div><div class="menu-item-desc">Hot Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹10</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Milk Coffee',60)"><div class="menu-item-info"><div class="menu-item-name">Milk Coffee</div><div class="menu-item-desc">Hot Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹60</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Black Coffee',50)"><div class="menu-item-info"><div class="menu-item-name">Black Coffee</div><div class="menu-item-desc">Hot Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹50</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Lemon Tea',50)"><div class="menu-item-info"><div class="menu-item-name">Lemon Tea</div><div class="menu-item-desc">Hot Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹50</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Green Tea',50)"><div class="menu-item-info"><div class="menu-item-name">Green Tea</div><div class="menu-item-desc">Hot Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹50</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Cold Coffee',100)"><div class="menu-item-info"><div class="menu-item-name">Cold Coffee</div><div class="menu-item-desc">Cold Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Fresh Lime',100)"><div class="menu-item-info"><div class="menu-item-name">Fresh Lime</div><div class="menu-item-desc">Cold Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Lemon Ice Tea',100)"><div class="menu-item-info"><div class="menu-item-name">Lemon Ice Tea</div><div class="menu-item-desc">Cold Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Soda – Coke/Sprite',50)"><div class="menu-item-info"><div class="menu-item-name">Soda – Coke / Sprite</div><div class="menu-item-desc">Cold Beverage</div></div><div class="menu-item-right"><div class="menu-item-price">₹50</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Strawberry Milkshake',100)"><div class="menu-item-info"><div class="menu-item-name">Strawberry Milkshake</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Vanilla Milkshake',100)"><div class="menu-item-info"><div class="menu-item-name">Vanilla Milkshake</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Chocolate Milkshake',100)"><div class="menu-item-info"><div class="menu-item-name">Chocolate Milkshake</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Butterscotch Milkshake',100)"><div class="menu-item-info"><div class="menu-item-name">Butterscotch Milkshake</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Mango Juice',100)"><div class="menu-item-info"><div class="menu-item-name">Mango Juice</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Blueberry Juice',130)"><div class="menu-item-info"><div class="menu-item-name">Blueberry Juice</div></div><div class="menu-item-right"><div class="menu-item-price">₹130</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Orange Juice',100)"><div class="menu-item-info"><div class="menu-item-name">Orange Juice</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Kiwi Juice',100)"><div class="menu-item-info"><div class="menu-item-name">Kiwi Juice</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Apple Juice',100)"><div class="menu-item-info"><div class="menu-item-name">Apple Juice</div></div><div class="menu-item-right"><div class="menu-item-price">₹100</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Mint Mocktail',120)"><div class="menu-item-info"><div class="menu-item-name">Mint Mocktail</div></div><div class="menu-item-right"><div class="menu-item-price">₹120</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Blueberry Mocktail',150)"><div class="menu-item-info"><div class="menu-item-name">Blueberry Mocktail</div></div><div class="menu-item-right"><div class="menu-item-price">₹150</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Strawberry Mocktail',120)"><div class="menu-item-info"><div class="menu-item-name">Strawberry Mocktail</div></div><div class="menu-item-right"><div class="menu-item-price">₹120</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Mango Mocktail',120)"><div class="menu-item-info"><div class="menu-item-name">Mango Mocktail</div></div><div class="menu-item-right"><div class="menu-item-price">₹120</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Orange Mocktail',120)"><div class="menu-item-info"><div class="menu-item-name">Orange Mocktail</div></div><div class="menu-item-right"><div class="menu-item-price">₹120</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Kiwi Mocktail',120)"><div class="menu-item-info"><div class="menu-item-name">Kiwi Mocktail</div></div><div class="menu-item-right"><div class="menu-item-price">₹120</div><button class="add-btn">+</button></div></div>
+  </div></div>
+
+  <div class="menu-panel" id="tab-combo"><div class="menu-grid">
+    <div class="menu-item" onclick="addToCart('Kids Combo I – Chicken Chow + French Fries + Chicken Nuggets + Juice',200)"><div class="menu-item-info"><div class="menu-item-name">Kids Combo I</div><div class="menu-item-desc">Chicken Chow + French Fries + Chicken Nuggets + Juice</div></div><div class="menu-item-right"><div class="menu-item-price">₹200</div><button class="add-btn">+</button></div></div>
+    <div class="menu-item" onclick="addToCart('Kids Combo II – Pork Chow + Pork Momo + French Fries + Juice',200)"><div class="menu-item-info"><div class="menu-item-name">Kids Combo II</div><div class="menu-item-desc">Pork Chow + Pork Momo + French Fries + Juice</div></div><div class="menu-item-right"><div class="menu-item-price">₹200</div><button class="add-btn">+</button></div></div>
+  </div></div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section scroll-offset" id="gallery">
+  <div class="section-label center">Moments at Emmai</div>
+  <h2 class="section-title center reveal">Our Space &amp; Food</h2>
+  <div class="gallery-grid reveal">
+    <img src="images/food.png" alt="Food spread at Emmai">
+    <img src="images/tea.png" alt="Tea service">
+    <img src="images/braised.png" alt="Braised dish close-up">
+    <img src="images/specialty.png" alt="Specialty coffees">
+    <img src="images/cafe.png" alt="Cafe interior lounge">
+    <img src="images/dining.png" alt="Dining area with pendant lights">
+    <img src="images/warm.png" alt="Warm seating area">
+    <img src="images/refresh.png" alt="Refreshing drinks">
+  </div>
+</section>
+
+<!-- VISIT & MAP -->
+<section class="info-section scroll-offset" id="visit">
+  <div>
+    <div class="section-label">Find Us</div>
+    <h2 class="section-title reveal">Visit Emmai</h2>
+    <div class="info-details reveal">
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-row-label">Address</div>
+          <div class="info-row-value">Razhü Point, 2nd Floor<br>Dr Neilhouzhü Kire Complex<br>Kohima, Nagaland</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🕐</div>
+        <div>
+          <div class="info-row-label">Opening Hours</div>
+          <div class="info-row-value">Monday – Saturday &nbsp;·&nbsp; 10:00 AM – 6:00 PM<br><span style="color:rgba(255,255,255,.38);font-size:.8rem">Closed on Sundays</span></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-row-label">For Orders &amp; Reservations</div>
+          <div class="info-row-value"><a href="tel:9774884078">9774884078</a> &nbsp;/&nbsp; <a href="tel:8794169732">8794169732</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">💬</div>
+        <div>
+          <div class="info-row-label">WhatsApp Orders</div>
+          <div class="info-row-value"><a href="https://wa.me/919774884078" target="_blank">Chat on WhatsApp →</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📸</div>
+        <div>
+          <div class="info-row-label">Instagram</div>
+          <div class="info-row-value"><a href="https://www.instagram.com/emmai_restaurant" target="_blank">@emmai_restaurant</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1938.742371411565!2d94.10825915221523!3d25.674158152868255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37462144eb921a47%3A0xd6a0336f2434be94!2sEmmai%20Restaurant!5e0!3m2!1sen!2sin!4v1774626024522!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
+    <p style="color:rgba(255,255,255,.35);font-size:.76rem;margin-top:10px;text-align:center">Razhü Point, 2nd Floor · Kohima, Nagaland</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="images/emmailogo.jpg" class="footer-logo" alt="Emmai logo">
+  <div class="footer-name">Emmai Restaurant</div>
+  <p class="footer-tagline">Est. 2023 · Kohima, Nagaland</p>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#visit">Visit</a></li>
+  </ul>
+  <hr style="border:none;border-top:1px solid rgba(255,255,255,.08);margin-bottom:20px">
+  <p class="footer-copy">© 2025 Emmai Restaurant. All rights reserved. Made with ♥ in Kohima.</p>
+</footer>
+
+<!-- CART -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>Your Order</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cart-body">
+    <div class="cart-empty"><div class="cart-empty-icon">🛒</div><p>Your cart is empty.<br>Add items from the menu!</p></div>
+  </div>
+  <div class="cart-form" id="cart-form" style="display:none">
+    <h4>Your Details</h4>
+    <div class="form-group"><label>Your Name *</label><input type="text" id="customer-name" placeholder="e.g. Mhalie Sumi"></div>
+    <div class="form-group"><label>Delivery / Pickup Location *</label><input type="text" id="customer-location" placeholder="e.g. Pickup at Razhü Point / Home – Dimapur Road"></div>
+    <div class="form-group"><label>Special Notes (optional)</label><textarea id="customer-notes" placeholder="Allergies, special requests…"></textarea></div>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-amount" id="cart-total">₹0</span>
+    </div>
+    <button class="whatsapp-btn" onclick="sendWhatsApp()">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Send Order via WhatsApp
+    </button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
